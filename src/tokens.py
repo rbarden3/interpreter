@@ -8,7 +8,7 @@ class Tokens(Enum): #Base Tokens Class extends Enum
 class Types(Enum):#Base Types Class extends Enum
     pass
 
-class Keywords(Tokens):
+class Keywords(Tokens): #Basic Keywords
     LET = auto()
     FOR = auto()
     DO = auto()
@@ -19,20 +19,20 @@ class Keywords(Tokens):
     THEN = auto()
     ELSE = auto()
 
-class Type(Types):
+class Type(Types): #Types for non keywords
     DataType = auto()
     Syntax = auto()
-    MathOperator = auto()
+    Identifiers = auto()
     BoolOperator = auto()
 
-class DataType(Tokens):
-    D_BOOL = auto()
-    D_FLOAT = auto()
-    D_INT = auto()
+class Identifiers(Tokens): # Type for Identifiers like: float, int, bool
+    I_BOOL = auto()
+    I_FLOAT = auto()
+    I_INT = auto()
+    I_VAR = auto()
 
 class Syntax(Tokens):
     GET = auto()
-    NAME = auto()
     P_LEFT = auto()
     P_RIGHT = auto()
     
