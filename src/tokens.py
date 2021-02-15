@@ -1,4 +1,11 @@
 
+# Class:       CS 4308 Section 2
+# Term:        Spring 2021
+# Name:        Raleigh Barden, James Rivett, Barrett Calhoun
+# Instructor:   Deepa Muralidhar
+# Project:  Deliverable 1 Scanner - Python
+
+
 from enum import Enum, auto #import Enumeration package for tokens
 import re #Import re for regular expresions (prevents hardcoding tokens)
 
@@ -25,24 +32,25 @@ class Type(Types): #Types for non keywords
     Identifiers = auto()
     BoolOperator = auto()
 
-class Identifiers(Tokens): # Type for Identifiers like: float, int, bool
+class Identifiers(Tokens): # Type for Identifiers like: float, int, bool, str, and variables
     I_BOOL = auto()
     I_FLOAT = auto()
     I_INT = auto()
+    I_STR = auto()
     I_VAR = auto()
 
-class Syntax(Tokens):
+class Syntax(Tokens): # Type for syntax tokens like: "(", ")", "="
     GET = auto()
     P_LEFT = auto()
     P_RIGHT = auto()
     
-class MathOperator(Tokens):
+class MathOperator(Tokens): # Type for mathmatic operators
     M_ADD = auto()
     M_SUB = auto()
     M_MUL = auto()
     M_DIV = auto()
     
-class BoolOperator(Tokens):
+class BoolOperator(Tokens): # Type for Boolean Operators
     B_GREATER = auto()
     B_NOT_GREATER = auto()
     B_LESS = auto()
