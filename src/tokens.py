@@ -5,6 +5,8 @@
 # Instructor:   Deepa Muralidhar
 # Project:  Deliverable 1 Scanner - Python
 
+# Key Terms from:
+# https://documentation.help/FreeBASIC/CatPgFullIndex.html
 
 from enum import Enum, auto #import Enumeration package for tokens
 import re #Import re for regular expresions (prevents hardcoding tokens)
