@@ -65,10 +65,10 @@ KEYWORDS = ( # Match Keywords using Regex
     (re.compile(r'THEN', re.IGNORECASE), Keywords.THEN),
     (re.compile(r'ELSE', re.IGNORECASE), Keywords.ELSE),
     (re.compile(r'PRINT', re.IGNORECASE), Keywords.PRINT),
-
+    
 )
 
-NON_KEYWORDS = (
+NON_KEYWORDS = ( # Match Other Tokens using regex
     (re.compile(r'\".*\"', re.IGNORECASE), Literal.STRING),
     (re.compile(r'(\d+\.?\d*)|(\.?\d)', re.IGNORECASE), Literal.NUMBER),
 
@@ -89,4 +89,8 @@ NON_KEYWORDS = (
     (re.compile(r'\(', re.IGNORECASE), Other.LEFT_PAREN),
     (re.compile(r'\)', re.IGNORECASE), Other.RIGHT_PAREN),
     
+    # identifiers added at the end to prevent catching other tokens
+    (re.compile(r'[A-Za-z0-9_]{1,31}'), Literal.IDENTIFIER)
 )
+# Skip Whitespaces
+WS_SKIP = re.compile(r"\s")
