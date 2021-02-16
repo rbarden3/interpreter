@@ -67,3 +67,12 @@ class Scanner:
                 else:
                     yield self.match(TOKEN_TYPES)
         yield Token(Delimiters.EOF,"/Z", (self.line_num+1, self.pos+1))
+
+if __name__ == "__main__":
+    with open(args.filename, "r") as f:
+        scanner = Scanner(f)
+        try:
+            for token in scanner.lex(): # iterate through tokens
+                print(token)
+        except ScannerError as e:
+            print(e)
