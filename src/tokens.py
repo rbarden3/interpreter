@@ -54,7 +54,7 @@ class Other(TokenType): # Type for syntax TokenType like: "(", ")", "="
     RIGHT_PAREN = auto()
 
     
-KEYWORDS = ( # Match Keywords using Regex
+TOKEN_TYPES = ( # Match Keywords using Regex
     (re.compile(r'LET', re.IGNORECASE), Keywords.LET),
     (re.compile(r'DO', re.IGNORECASE), Keywords.DO),
     (re.compile(r'FOR', re.IGNORECASE), Keywords.FOR),
@@ -66,9 +66,6 @@ KEYWORDS = ( # Match Keywords using Regex
     (re.compile(r'ELSE', re.IGNORECASE), Keywords.ELSE),
     (re.compile(r'PRINT', re.IGNORECASE), Keywords.PRINT),
     
-)
-
-NON_KEYWORDS = ( # Match Other Tokens using regex
     (re.compile(r'\".*\"', re.IGNORECASE), Literal.STRING),
     (re.compile(r'(\d+\.?\d*)|(\.?\d)', re.IGNORECASE), Literal.NUMBER),
 
