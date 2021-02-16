@@ -14,9 +14,6 @@ import re #Import re for regular expresions (prevents hardcoding tokens)
 class Tokens(Enum): #Base Tokens Class extends Enum
     pass
 
-class Types(Enum):#Base Types Class extends Enum
-    pass
-
 class Keywords(Tokens): #Basic Keywords
     LET = auto()
     FOR = auto()
@@ -45,6 +42,10 @@ class BoolOperator(Tokens): # Type for Boolean Operators
     B_LESS = auto()
     B_LESS_EQUAL = auto()
     B_EQL_EQL = auto()
+
+class Delimiters(Tokens):
+    EOL = auto()
+    EOF = auto()
 
 class Other(Tokens): # Type for syntax tokens like: "(", ")", "="
     EQL = auto()
