@@ -58,19 +58,22 @@ class Scanner:
             raise ScannerError((self.line_num+1, self.pos+1))
 
     def lex(self):
-        for self.line_num, self.line in enumerate(self.source):
+        for self.line_num, self.line in enumerate(self.source_file):
             self.pos = 0
             while self.pos < len(self.line):
-                ws = WS_SKIP.search(self.liune, self.pos)
+                ws = WS_SKIP.search(self.line, self.pos)
                 if ws:
                     self.pos = ws.start()
+                if self.line[self.pos].isalpha():
+                    yield self.match(KEYWORDS)
                 else:
-                    yield self.match(TOKEN_TYPES)
+                    yield self.match(NON_KEYWORDS)
         yield Token(Delimiters.EOF,"/Z", (self.line_num+1, self.pos+1))
 
 if __name__ == "__main__":
     with open(args.filename, "r") as f:
         scanner = Scanner(f)
+        last_tok = None
         try:
             for token in scanner.lex(): # iterate through tokens
                 print(token)
