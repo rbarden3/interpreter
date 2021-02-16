@@ -16,14 +16,15 @@ class Tokens(Enum): #Base Tokens Class extends Enum
 
 class Keywords(Tokens): #Basic Keywords
     LET = auto()
-    FOR = auto()
     DO = auto()
+    FOR = auto()
     WHILE = auto()
     LOOP = auto()
     END = auto()
     IF = auto()
     THEN = auto()
     ELSE = auto()
+    PRINT = auto()
 
 class Literal(Tokens): # Type for Identifiers like: float, int, bool, str, and variables
     IDENTIFIER = auto()
@@ -49,7 +50,7 @@ class Delimiters(Tokens):
 
 class Other(Tokens): # Type for syntax tokens like: "(", ")", "="
     EQL = auto()
-    P_LEFT = auto()
-    P_RIGHT = auto()
+    LEFT_PAREN = auto()
+    RIGHT_PAREN = auto()
 
     
