@@ -95,4 +95,4 @@ NON_KEYWORDS = ( # Match Other Tokens using regex
     (re.compile(r'[A-Za-z0-9_]{1,31}'), Literal.IDENTIFIER)
 )
 # Skip Whitespaces
-WS_SKIP = re.compile(r"\s")
+WS_SKIP = re.compile(r"\S|\r\n|\r|\n")
