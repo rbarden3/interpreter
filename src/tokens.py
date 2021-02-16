@@ -54,3 +54,39 @@ class Other(TokenType): # Type for syntax TokenType like: "(", ")", "="
     RIGHT_PAREN = auto()
 
     
+KEYWORDS = ( # Match Keywords using Regex
+    (re.compile(r'LET', re.IGNORECASE), Keywords.LET),
+    (re.compile(r'DO', re.IGNORECASE), Keywords.DO),
+    (re.compile(r'FOR', re.IGNORECASE), Keywords.FOR),
+    (re.compile(r'WHILE', re.IGNORECASE), Keywords.WHILE),
+    (re.compile(r'LOOP', re.IGNORECASE), Keywords.LOOP),
+    (re.compile(r'END', re.IGNORECASE), Keywords.END),
+    (re.compile(r'IF', re.IGNORECASE), Keywords.IF),
+    (re.compile(r'THEN', re.IGNORECASE), Keywords.THEN),
+    (re.compile(r'ELSE', re.IGNORECASE), Keywords.ELSE),
+    (re.compile(r'PRINT', re.IGNORECASE), Keywords.PRINT),
+
+)
+
+NON_KEYWORDS = (
+    (re.compile(r'\".*\"', re.IGNORECASE), Literal.STRING),
+    (re.compile(r'(\d+\.?\d*)|(\.?\d)', re.IGNORECASE), Literal.NUMBER),
+
+    (re.compile(r'\+', re.IGNORECASE), MathOperator.M_ADD),
+    (re.compile(r'\-', re.IGNORECASE), MathOperator.M_SUB),
+    (re.compile(r'\*', re.IGNORECASE), MathOperator.M_MUL),
+    (re.compile(r'\/', re.IGNORECASE), MathOperator.M_DIV),
+    
+    (re.compile(r'>', re.IGNORECASE), BoolOperator.B_GREATER),
+    (re.compile(r'>=', re.IGNORECASE), BoolOperator.B_GREATER_EQUAL),
+    (re.compile(r'<', re.IGNORECASE), BoolOperator.B_LESS),
+    (re.compile(r'<=', re.IGNORECASE), BoolOperator.B_LESS_EQUAL),
+    (re.compile(r'==', re.IGNORECASE), BoolOperator.B_EQL_EQL),
+    
+    (re.compile(r'\n', re.IGNORECASE), Delimiters.EOL),
+    
+    (re.compile(r'=', re.IGNORECASE), Other.EQL),
+    (re.compile(r'\(', re.IGNORECASE), Other.LEFT_PAREN),
+    (re.compile(r'\)', re.IGNORECASE), Other.RIGHT_PAREN),
+    
+)
