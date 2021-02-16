@@ -7,6 +7,21 @@
 
 import re              # import re to match regx
 from tokens import *   # import the basic subset to be used
+import argparse        # Import argparse for CLI 
+
+# create parser object
+parser = argparse.ArgumentParser(description='')
+
+# Create filename argument
+parser.add_argument('--filename',
+                    dest='filename',
+                    type=str, required=True)
+
+# Parse Args
+try:
+    args = parser.parse_args()
+except:
+    args = parser.parse_args("")
 
 class Token:
         # Constructor for token class
