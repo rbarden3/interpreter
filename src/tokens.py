@@ -28,23 +28,10 @@ class Keywords(Tokens): #Basic Keywords
     THEN = auto()
     ELSE = auto()
 
-class Type(Types): #Types for non keywords
-    DataType = auto()
-    Syntax = auto()
-    Identifiers = auto()
-    BoolOperator = auto()
-
-class Identifiers(Tokens): # Type for Identifiers like: float, int, bool, str, and variables
-    I_BOOL = auto()
-    I_FLOAT = auto()
-    I_INT = auto()
-    I_STR = auto()
-    I_VAR = auto()
-
-class Syntax(Tokens): # Type for syntax tokens like: "(", ")", "="
-    GET = auto()
-    P_LEFT = auto()
-    P_RIGHT = auto()
+class Literal(Tokens): # Type for Identifiers like: float, int, bool, str, and variables
+    IDENTIFIER = auto()
+    STRING = auto()
+    NUMBER = auto()
     
 class MathOperator(Tokens): # Type for mathmatic operators
     M_ADD = auto()
@@ -54,9 +41,14 @@ class MathOperator(Tokens): # Type for mathmatic operators
     
 class BoolOperator(Tokens): # Type for Boolean Operators
     B_GREATER = auto()
-    B_NOT_GREATER = auto()
+    B_GREATER_EQUAL = auto()
     B_LESS = auto()
-    B_NOT_LESS = auto()
-    B_EQL = auto()
+    B_LESS_EQUAL = auto()
+    B_EQL_EQL = auto()
+
+class Other(Tokens): # Type for syntax tokens like: "(", ")", "="
+    EQL = auto()
+    P_LEFT = auto()
+    P_RIGHT = auto()
 
     
